@@ -1,0 +1,450 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ამომრჩეველთა სიის გადამოწმება</title>
+    <script>
+        if (window.location.pathname.endsWith("/")) {
+            window.location.replace("./cesco/");
+        }
+    </script>
+    <link rel="stylesheet" href="./style.css">
+<script src="https://maps.googleapis.com/maps-api-v3/api/js/65/12f/intl/ka_ALL/main.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/12f/intl/ka_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/65/12f/intl/ka_ALL/util.js"></script></head>
+<body>
+    <header b-zpaoqkyxow="">
+    </header>
+    <div b-zpaoqkyxow="" class="container">
+        <main b-zpaoqkyxow="" role="main" class="pb-3">
+            
+<div class="container">
+    <div class="row">
+        <section class="voter-verification">
+        <div class="verification-container">
+            <div class="container-fluid d-flex align-items-center justify-content-center">
+                <div class="col-md-8">
+                    <div class="row justify-content-center">
+                        <img loading="lazy" src="cec.webp" class="logo" alt="Voter Logo">
+                    </div>
+                    <div class="row">
+                        <h1 class="main-title">გადაამოწმეთ პირადი მონაცემები და მისამართი ამომრჩეველთა ერთიან სიაში</h1>
+                    </div>
+                    <div class="row">
+                        <p class="subtitle">ვებგვერდი განკუთვნილია მხოლოდ ამომრჩეველთათვის - საკუთარი და ოჯახის წევრების მონაცემების გადასამოწმებლად!</p>
+                        <p id="dateInfo" class="date-info">(15.07.2026 მდგომარეობით)</p>
+                    </div>
+            
+                    <form id="voterForm" method="post" action="/">
+                        <div class="row">
+                            <label for="PersonalId" class="visually-hidden">პირადი ნომერი</label>
+                            <input autocomplete="off" type="text" onkeypress="return isNumberKey(event)" id="PersonalId" name="PersonalId" class="input-field" placeholder="პირადი ნომერი" aria-label="პირადი ნომერი" maxlength="11" required="">
+                        </div>
+                        <div class="row">
+                            <label for="Surname" class="visually-hidden">გვარი</label>
+                            <input autocomplete="off" type="text" onkeypress="return isSurname(event)" id="Surname" name="Surname" class="input-field" placeholder="გვარი" aria-label="გვარი" required="">
+                        </div>
+                        <div class="row">
+                            <label for="Phone" class="visually-hidden">5##-##-##-##</label>
+                            <input autocomplete="off" type="text" onkeypress="return isNumberKey(event)" id="Phone" name="Phone" class="input-field" placeholder="5##-##-##-##" aria-label="5##-##-##-##" maxlength="12" required="">
+                        </div>
+                        <div class="row" style="margin-top: 15px;">
+                            <div id="turnstile-widget" class="cf-turnstile" data-sitekey="0x4AAAAAABjO7MVXIvwcCXEP" data-size="flexible" data-theme="light" data-appearance="interactive" data-feedback-enabled="false"><div><input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-cg21d_response" value="1.rzXZ1m0r05ck4mbmQ5YGZlaav42DnnCxxyylH_L8mgIidFTsxN-VqzVof0m7cGwXxs-q9GpcwzBTCSXz4T1yN3IiWN-vuoxxi1tcl1Q9eqTr7O-B3OWLhvAiuEPku142PKexBqwh9BTASgwEQpr0mUcUd_SASWMCVJQoKkLc3b5FOyWCWQ5H1n6roLl5O8LGPw0sKHfIBoCpBZKJgt3M8VWxkJVTXFkui_EDCtEE5BleVy8bba2UQRR2QQQ4qJUa0dPienLaS9ZwQJKt4SzzaoqSuk9I0R5BawCJpXUzQ1XFgdFWukxJK-176njAMT5l-1KrrTjoFWyFr-XNyXuR0EmCJfBJYAL9keZUFDal_Q7i5CrlhNyDN6RJ6MPROpLzvXiOh6wP3Y7VATxekx20TSxXtC-IfcIhMmnKnKM-2kGhwUyxZfXlRwA3CN6M1e5nJ9UMWIzTJFmlBtXmtFdnHOMTZNaiV-JJr1yM2UwXySsLXk2JOBjl3oa27brKsp0emxShRP67MBnmLuzWUS-x0NyQMkgrEKBvMXrs4z6PFBFo9ZtbTq4PRT8WE37vi4djAhM0MbNQfN5QizTlExb76ZgDTokjcr4cgbxv9NvLLlMebcGciYLYw8A00prcno4xIJS5mI4Gl70KIRJuJ6yq8EJcvKCLvP6RZN6ia2cW0ks.o_NSLRiL-k-xJRi-BfnvkQ.f84b01f60b1b6316361af743b817508b3c7095729367f917a073ffac421c60a0"></div></div>
+                        </div>
+                        <button type="submit" class="search-button" disabled><span id="loader" style="display: none;" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> ძებნა</button>
+                    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8IKbLRGAlJ1Mn1301BOlc1LJj_sd_sUF2LLkrwNB36d79pUM8zW8L7k12GiLvF60roiLKwNZQ744ipXW43SUY93jFOX-VmQ4CVKrce982JkKKR8hLI2tyxNZ9dP2BOyaXkiUTcd0K0nzOgZAeL2uLRQ"></form>
+                    <section id="otpView" class="otp-view" aria-labelledby="otpInstruction" hidden>
+                        <p id="otpInstruction" class="otp-instruction">თქვენ მიიღეთ ოთხნიშნა ერთჯერად კოდი SMS-ის სახით, რომელიც უნდა შეიყვანოთ ავტორიზაციის დასადასტურებლად.</p>
+                        <p class="otp-label">შეიყვანეთ კოდი</p>
+                        <div class="otp-code-row" role="group" aria-label="ოთხნიშნა კოდი">
+                            <input class="otp-digit" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="კოდის პირველი ციფრი">
+                            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="კოდის მეორე ციფრი">
+                            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="კოდის მესამე ციფრი">
+                            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" aria-label="კოდის მეოთხე ციფრი">
+                            <span id="otpTimer" class="otp-timer" role="timer" aria-live="polite">3:00</span>
+                        </div>
+                        <div class="otp-actions">
+                            <button id="otpSearchButton" type="button" class="otp-search-button" disabled>ძებნა</button>
+                            <button id="otpBackButton" type="button" class="otp-back-button">უკან დაბრუნება</button>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    <div id="voterInfo" class="dynamic-content" hidden>
+    <div class="row">
+    <section>
+        <table class="table-responsive table-bordered custom-table">
+            <thead>
+                <tr>
+                    <th class="header" style="width: 70%;">სურათი</th>
+                    <th class="header" style="width: 90%;">გვარი</th>
+                    <th class="header" style="width: 50%;">სახელი</th>
+                    <th class="header" style="width: 60%;">დაბ.თარიღი</th>
+                    <th class="header" style="width: 70%;">ოლქი/უბანი</th>
+                    <th class="header" style="width: 120%;">მისამართი</th>
+                    <th class="header" style="width: 120%;">ფაქტობრივი საცხოვრებელი ადგილი</th>
+                    <th class="header">ფაქტობრივი მდგომარეობა</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="data:image/jpeg;base64,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">
+                    </td><td>
+ბიძინაშვილი                            <br>
+                    </td>
+                    <td>
+ლაშა                            <br>
+                    </td>
+                    <td>16.01.2004</td>
+                    <td>
+                            <span style="color: #009766;">ელექტრონული</span><br>
+                        <button class="map-button open-modal-button">03.59</button>
+                    </td>
+                    <td>
+საქართველო, ქალაქი თბილისი, ვიქტორ დოლიძის ქუჩა, კორპუსი 28, ბინა 49                            <br>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <div class="container-fluid d-flex align-items-center justify-content-center">
+            <div class="row">
+                <button onclick="toggle()" class="more-button">
+                    ამ მისამართზე რეგისტრირებულ ამომრჩეველთა სია
+                    <span style="margin-left: 20px;">
+                        <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14.2939 13.2075H13.3905L13.0703 12.8834C14.191 11.5146 14.8656 9.73756 14.8656 7.80446C14.8656 3.494 11.538 0 7.43282 0C3.32762 0 0 3.494 0 7.80446C0 12.1149 3.32762 15.6089 7.43282 15.6089C9.27387 15.6089 10.9663 14.9005 12.2699 13.7238L12.5786 14.06V15.0086L18.2962 21L20 19.211L14.2939 13.2075ZM7.43282 13.2075C4.58548 13.2075 2.28702 10.7942 2.28702 7.80446C2.28702 4.81475 4.58548 2.40137 7.43282 2.40137C10.2802 2.40137 12.5786 4.81475 12.5786 7.80446C12.5786 10.7942 10.2802 13.2075 7.43282 13.2075Z" fill="white"></path>
+                        </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </section>
+    </div>
+    <br>
+    <div id="others" class="row" style="display: none;">
+        <section>
+            <table class="table-responsive table-bordered table-striped custom-table">
+            <thead>
+                <tr>
+                    <th class="header" style="width: 90%;">გვარი</th>
+                    <th class="header" style="width: 50%;">სახელი</th>
+                    <th class="header" style="width: 60%;">დაბ.თარიღი</th>
+                    <th class="header" style="width: 70%;">ოლქი/უბანი</th>
+                    <th class="header" style="width: 120%;">მისამართი</th>
+                    <th class="header" style="width: 120%;">ფაქტობრივი საცხოვრებელი ადგილი</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td>ბიძინაშვილი</td>
+                        <td>ზაზა</td>
+                        <td>07.07.1971</td>
+                        <td>03.59</td>
+                        <td>საქართველო, ქალაქი თბილისი, ვიქტორ დოლიძის ქუჩა, კორპუსი 28, ბინა 49</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>ბიძინაშვილი</td>
+                        <td>ლაშა</td>
+                        <td>16.01.2004</td>
+                        <td>03.59</td>
+                        <td>საქართველო, ქალაქი თბილისი, ვიქტორ დოლიძის ქუჩა, კორპუსი 28, ბინა 49</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>მამამთავრიშვილი</td>
+                        <td>ნინო</td>
+                        <td>29.06.1968</td>
+                        <td>03.59</td>
+                        <td>საქართველო, ქალაქი თბილისი, ვიქტორ დოლიძის ქუჩა, კორპუსი 28, ბინა 49</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>ნიკოლაძე</td>
+                        <td>ლევან</td>
+                        <td>01.09.1971</td>
+                        <td>03.59</td>
+                        <td>საქართველო, ქალაქი თბილისი, ვიქტორ დოლიძის ქუჩა, კორპუსი 28, ბინა 49</td>
+                        <td></td>
+                    </tr>
+                
+            </tbody>
+        </table>
+        </section>
+    </div>
+    <script>
+
+        $('#mapModalLabel').html("N 61 &#x10E1;&#x10D0;&#x10EF;&#x10D0;&#x10E0;&#x10DD; &#x10E1;&#x10D9;&#x10DD;&#x10DA;&#x10D0; / &#x10D5;. &#x10D3;&#x10DD;&#x10DA;&#x10D8;&#x10EB;&#x10D8;&#x10E1; &#x10E5;. &#x2116;3, I &#x10E1;&#x10D0;&#x10E0;&#x10D7;.")
+
+        $(document).on('click', '.open-modal-button', function () {
+            $('#mapModal').modal('show');
+            initMap(); // Initialize the map when the modal opens
+        });
+
+        $(document).on('click', '.close', function() {
+            $('#mapModal').modal('hide');
+        });
+
+        function initMap() {
+            const mapOptions = {
+                center: { lat: 41.717858, lng: 44.776791 },
+                zoom: 16,
+                mapTypeId: google.maps.MapTypeId.HYBRID
+            };
+            var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+            var infowindow = new google.maps.InfoWindow({
+                content: "N 61 &#x10E1;&#x10D0;&#x10EF;&#x10D0;&#x10E0;&#x10DD; &#x10E1;&#x10D9;&#x10DD;&#x10DA;&#x10D0; / &#x10D5;. &#x10D3;&#x10DD;&#x10DA;&#x10D8;&#x10EB;&#x10D8;&#x10E1; &#x10E5;. &#x2116;3, I &#x10E1;&#x10D0;&#x10E0;&#x10D7;."
+            });
+            
+            var image = '/img/election-icon.png';
+            var marker = new google.maps.Marker({
+                position: new google.maps.LatLng(41.717858, 44.776791),
+                title:"N 61 &#x10E1;&#x10D0;&#x10EF;&#x10D0;&#x10E0;&#x10DD; &#x10E1;&#x10D9;&#x10DD;&#x10DA;&#x10D0; / &#x10D5;. &#x10D3;&#x10DD;&#x10DA;&#x10D8;&#x10EB;&#x10D8;&#x10E1; &#x10E5;. &#x2116;3, I &#x10E1;&#x10D0;&#x10E0;&#x10D7;.",
+                icon: image
+            });
+            marker.setMap(map);                                 
+            infowindow.open(map, marker);
+        }
+    </script>
+</div>
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="mapModalLabel">N 61 საჯარო სკოლა / ვ. დოლიძის ქ. №3, I სართ.</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Map Container -->
+                    <div id="map" style="width: 100%; height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        </main>
+    </div>
+
+    <footer b-zpaoqkyxow="" class="border-top footer text-muted">
+        <div b-zpaoqkyxow="" class="container">
+           <label b-zpaoqkyxow="" style="font-family: 'DejaVu Sans' !important;font-weight: normal;font-style: normal;">© საქართველოს საარჩევნო ადმინისტრაცია</label>
+        </div>
+    </footer>
+    <script>
+        const voterForm = document.getElementById("voterForm");
+        const voterInfo = document.getElementById("voterInfo");
+        const personalIdInput = document.getElementById("PersonalId");
+        const surnameInput = document.getElementById("Surname");
+        const phoneInput = document.getElementById("Phone");
+        const searchButton = voterForm.querySelector(".search-button");
+        const dateInfo = document.getElementById("dateInfo");
+        const otpView = document.getElementById("otpView");
+        const otpInputs = Array.from(document.querySelectorAll(".otp-digit"));
+        const otpTimer = document.getElementById("otpTimer");
+        const otpSearchButton = document.getElementById("otpSearchButton");
+        const otpBackButton = document.getElementById("otpBackButton");
+        const verificationContainer = document.querySelector(".verification-container");
+        const voterRow = voterInfo.querySelector(".custom-table tbody tr");
+        const voterCells = voterRow.cells;
+        const voterImage = voterCells[0].querySelector("img");
+        const originalVoterImage = voterImage.src;
+        let otpTimerInterval;
+        let isCompletingOtp = false;
+
+        const voters = {
+            "01624097987|ბიძინაშვილი": {
+                surname: "ბიძინაშვილი",
+                firstName: "ლაშა",
+                birthDate: "16.01.2004",
+                address: "საქართველო, ქალაქი თბილისი, ვიქტორ დოლიძის ქუჩა, კორპუსი 28, ბინა 49",
+                image: originalVoterImage
+            },
+            "01424099388|ნოზაძე": {
+                surname: "ნოზაძე",
+                firstName: "ლაზარე",
+                birthDate: "05.05.2001",
+                address: "საქართველო, ქალაქი თბილისი, ზაზა ფანასკერტელ-ციციშვილის ქუჩა, N 20, ბინა 91",
+                image: "data:image/jpeg;base64,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"
+            },
+            "01501122849|დავლიანიძე": {
+                surname: "დავლიანიძე",
+                firstName: "დაჩი",
+                birthDate: "05.07.2004",
+                phone: "599885165",
+                address: "საქართველო, ქალაქი თბილისი, დიდი დიღომი, იოანე პეტრიწის ქუჩა, N 1ბ, ბინა 50",
+                image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCACAAGQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9U6KKKACiisnxV4p0zwZoN5rGr3SWdhaxmSSV/QDOAO59qaTeiE2krs1qoaxr2m+HrNrvVNQtdNtVODNdzLEgPpliBXxZ8c/+CiGnW2i/2d4Bjc6jPEDLqd0oC22f4UX+Jh/ePyjtur4T8T/FnV/HmqTX2vard6pcPJuMl1MWy3sCcAfTFd1LCTn8WhyVMTGGx+1Vl8SfCWozCG18T6PczFxGI4r6JmLHouA3XkcV0YIPQ5r8GJPEyQTKRcMJB2B6V7Z8LP2xvG3gC4t7G11qa7trc5jtL5i8RB6jk5wf0x+es8FZXiyI4q+6P18orzH4EfHbRPjh4Tiv7GVIdVhRRf6fn5oJCO395T2I/Q8V6dXmyi4uzO2MlJXQUUUVJQUUUUAFFFITigCnq+sWWgadPf6jdQ2VlCN0k87hEQdMkngda/L39t39rSP4pan/AGB4fuJU8N2TOFfO1buQfx49B2z6mvQP2/8A9pC51HWJfAGgzSR2Ni+3UmDbRcS4BCcdQv8AM+wr4J1eQX04ik+WY5IBwa9TDUlC05Hn1qjleMTn4tbke2eVmJbcSQ3P0qK31AXEW8gtJ12gdBV6Tw7I7siQuYz/ABKpxmrWn+HXsJvMkglCty24cn2Feu60E7o81UajVjPM95IvyRlFHO0Dbn6n0oj1Ca1nWeVw8mMKvAFdK+izXFsCsZiUtwSOTz7iuc1zTrmylHmKzhT1KkfrUqtGTB0ZwVzvfhn8b/E3w117+1PD+s3On3TDawtySrDuGB4Yc9CPev0w/ZU/bQ0j4nQ6b4c12R7fxFKvlpK5BSd+p542k9lx7V+Sunq8sLMJFKMM4Zvmz6dc1vaNr1z4av7eZA0E6OJEljJVo2HIYEc1FSjTrRaRdOrOm7s/f4HNLXh37IHxvm+OHwktNQ1B0bWrB/sV4wcFpiqgrKRgbdwPI9Qa9xr5uUXCTiz3YyU4qSCiiipKCuU+KvjWD4dfDnxD4kuT+70+zeVQDjc+MIv4sVH411dfMH/BQjx1F4b+BkmiqQ15rl1HCqYyRHGwkZvblUGf9qtKceaaRE3yxbPy+8S+IbjxV4ivry6l824uZXnldhkszHJP5mr3gj4ev4l159gI3MI97chfpXMmNoZgsaqzuQB6k5r7A+B3hOPRNGt5LmBRO2H+cZOT0r0sVU9nDQwwVL21TUn8L/s42un2kE0Fuk0m4Eh1HP1z/jXXx/AWPUJBJdadaKgXaqRgZXPfrgmvSdFjeTBZgE9+a6a002UupBLDp8vNeE6k5O59ZDD00rHzvqHwR06wuWzpojiWPyjuUYYeox35ry34j/BK1imlIt8tt3uUHCgnAz+v5V9vahpLyIqmPcp+8W6Cuf1fw/BcQSLLEkm5dpyvUUvazTHPDU5I/NnxF8KzZvE8MLLJtIVgD2/rXnl5cy25a1uUAKE4bnI+ntX6O+JvBemS4LWao0Y+XA4r4m+OfhhdL8TTLbr5SyNu4HTJ7V7WDxTm+RnzWPwSpR54mv8As2/tAar8EviLpGoafM0lpMUgvLdpCqyxMwOG7fQkHGa/baxulvrOC4QgpKgkUg5BBGRzX89+j+W2sg7Q3lPtG08dun5Gv3r+E/iaLxj8M/C+tRIkQvdOglMSHIjYoNyj6HI/CtcfFe7JI87ByvdXOsoooryD0wr5h/4KG+HYdW/Z+ur4sUudOvYJoyFyWBJVlz2GGz+FfT1ea/tGeBZfiP8ABrxJocN0to8sAl8x+mI2EhB/75rWlLlmmZ1I80Wj8cPh7o51j4naVbSoJFD+bjqOFz/MV9Q6noXjC5i3W2s2ej2WMLG8eSR6s3b8K8i+AXhppvipdSMu8WsD/vByPmb5c/hXvHxW8I6hrGkJDp941s+QS4UHA79e9dOKqLnSN8HRkoNvuecau/xF0YGe28d2U8BPSKTGPbJBr2n4M/EnW7nSjaaxex3F3t2idGDfjxXh8/w/vB4otriK91GLSlEZnsTdsfNZQQRnk4J59s9DXU+D/CFxod9DOJwsm/ny+AR79BkeoAHtXPVkklZpndh4z572a9Xc+hviR47vtD0R5LfaXCDa3Q9M5P8AnvXyrqHxt+K82q7dLiguo3ODDIU2/mSMV6x8VrS98Q+G0hWdl27QTH6Z5rwXWvCOt2OlzyaU62+prMpjBjWcSQ4OSXboc46bcc1z0XrZ2+Z14xSWqb07HoFj48+Jkzh9S0S3mTHMaSrzx6g5ry74+WM/iLw1/bDWUmnyWjYuI35ZAehBHUZxXQ+F9L8VWOraQhuG1BJIx9smI8nZJ1wNoAYYx1HXoa9K+Ivhh9T8AazbyxhpZLRyAOTkDI/lXVGUY1Ft8jzakZzovf5nwvotvIzRwQwmWdjuQnnOf8/rX7Xfsfadr2kfADwvZ+Ira3tb+CJkWO3YN+7DHYWxxvx19/evzW/Y6+HGpeLv2gvDbWdklxZWdyLq5dwpVIV5bg9eoH41+x0MSQRLHGioijAVRgAfSvQx1VNKCPDwtNp8z0H0UUV456QVV1SyXUtNu7R/uXETxN9GUg/zq1SHkGgD82vgn4YtNK8W+Mo4otjwi2XDdcfPn9Vr2C8s2lUCJVyBjJHWlk8BX3hHxbr1zcae9nbXlxKVLAkAFtyqG6EYyR+PvV5HBwMgbc49K2qrmSZ7WHklJr5nNxaAZ5d0uCo5xjFYP9nibxG0QAWOIgKc4Ga7i61CO0ZTuDkA8kdRXkGseHfEGr+IbaaLWJbK3tZTMiWjKqSc52yqynI5xkH8q4U4qVrnqTta6R2/jWxhtNNUQyLMWiywXs3pWZpOhRXejW0zQqWYZYOufzrjvGWn+KdQvLG9tNTlhjt3x9miSJ1m9nLAkD6V6N4Te4GhW6XgSOZclkjOQMnOM4ok1oKKU5XaLVh4etIE3/ZkT6VQ8SWH2iyu0jwMwODn02mt6a4CxAKuCOBg/rXMa5evJYX8KPskkheMORnBYEf1rpow95M5MVKKg1FB/wAE/fh1JpvjO61yOTzLZNMO8+jyOML+Sn8jX3rXzp+xT4MufDPgLUbu4j8tLydY4txBYrGDycdOXPHtX0XVzk5SuzwqqUZcq2WgUUUVmZBRRRQBxXxd0w6j4LuGAy1s6zAfTg/oxr5pupmiBAUDORx6V9WePrn7J4I16boUsZiPrsOK+PrnX4bm2ilU5f7rj0PetN4HXhpcsjO1rxJp2iRh755mJJ2pBE0jMP8AgINcBqfxOlmjY2ej3KQ88yRksw+gOR9MV38xt3YHb+8Y4yo5GT6Vi+KfB5uiBa/6xgMZA61wxlFO0kfQwdndnC2PxQlRAsunTRQg7iDA4J49cYr0bwx4y0bXoB/Z96rTkfNbk7XU+hXrXO6H8PZHkJvogZFO4gj5TXSPo1vZXKyRxKjIMAhQMVU+T7KHOV3oaz3580x+v49q6H4S+E7fxj8QLazvYjcWKq8s6biBtCnHI5HzFe9cCb8eeTt56cV9Rfs6+A30PQ5NfvEC3epovkr3WHqD/wAC4P0Arrh7sLniYmp06nqWhaDYeGtNi0/TbdbW0jztjUk4yck5PJ5rQooqDzd9wooooAKK8Z+J37YHwm+E8cy6z4us7i8jzmy01vtUuf7p2ZVT7MRXx18X/wDgrjIFmsvh34VSNyCF1LW5NxUdiIU4B+rEe1dVPDVamy+85p4mlT3Z91fHLxHY6J8PNUguLuGG6vIvIt4HkAeUkjIVepwuScdhXxJfvPZ/vYj35B6Ee9fP/wCz9438Q/Fr4g634z8Wapca1qrAW63Fy+dpfLMFHRFACgKoAAJwK+mnslmiQP8Axjg1jWiqc+RM9PBfvqfPbcoaX4rjkx5uEcDHI6fWuutdUtJIAyyAOBnjvxXm+reHylwxVW5ORg4IqmtteohWJ9xz0Y7SP51zJR6o9KNScD1e81GCG0D+ar7hwM81w+veNILaJwZFDDrzXF6lcakpKmRs9Mbsj+lYaaNc3lwZJmMgHQGm1Hccqk5nRWviWXUrpUhGyFjjd3av0s8Ewrb+DdCiX7qWECj8I1r8zoLH+zLfzOw5zXknwa/4KIfET4D+KtW0S7uU8VeGIr+cJp2pMxaBPMbiGUfMg9juUdlrroU5YhNR6HjY2aoOMpdT9pqK8H/Z6/bN+HP7RNrDBpGpLpXiNlzJoeoMEnzjnyz0lX3XnHULXu4OaznCVN8s1ZmEJxqLmi7oWiiioLP5qb/WpAGkmkaSTsGOcVl/2juQMWyzc4/GsO41BriRlPOTkn2qI3hdyAcKRgY/Svsm7nhQwllqfY37GeqRtbarbswDi5WTGeeVA/oa+1rKATxqpBzxjFfl9+zn47/4Rnxc0DSbUvAuB/trkgfkW/Kv0V8M+P4pLK2eUb0ZR8w6gV8tjYNVWz6fAT5aah2Owu9IdwrGPIxwe9NXw+DFuCEEjoa19L1m0u4UaOVXHUgGugtprWSEtxubjisIxuepLueR6n4ZZ3bEZbJ7j/Cqsfh/7GGMi4I54r1fVfIRSgUB8du1cH4hnijbc7qg65JxWE1qCVldnB+LnW20i7mL7USNmJPRQB1r8xNR1g6prd9et0uLiSXn0LE/1r7C/a3+ONt4e8NXHhvS5Q2oaihjdlPKRHhj+IyB9T6V8OR3JIJyea9rL0qd292eJjf3r5ex1eka1cWk0cltcyQXMLArJG5Vhg8Ee4r7N+Av/BTb4lfCsW1h4hnHjjQ1IUxalIRcov8AsT8np/e3D2FfB9ncGOcMTjNaT6jsxtz1wa96cIVUotXR4U6UoSvTdj92/BH/AAUk+B/ivw7b6hf+I5PDd4/EunajaytJGw6/NGrKw9CD+Aor8MIdXKxjkjPvRXA8upPuV7fErSyP/9k="
+            }
+        };
+
+        function formatPhone(value) {
+            const digits = value.replace(/\D/g, "").slice(0, 9);
+            const parts = [];
+
+            if (digits.length > 0) parts.push(digits.slice(0, 3));
+            if (digits.length > 3) parts.push(digits.slice(3, 5));
+            if (digits.length > 5) parts.push(digits.slice(5, 7));
+            if (digits.length > 7) parts.push(digits.slice(7, 9));
+
+            return parts.join("-");
+        }
+
+        function updateSearchButton() {
+            searchButton.disabled =
+                personalIdInput.value.trim() === "" ||
+                surnameInput.value.trim() === "" ||
+                phoneInput.value.trim() === "";
+        }
+
+        personalIdInput.addEventListener("input", updateSearchButton);
+        surnameInput.addEventListener("input", updateSearchButton);
+        phoneInput.addEventListener("input", function () {
+            phoneInput.value = formatPhone(phoneInput.value);
+            updateSearchButton();
+        });
+        updateSearchButton();
+
+        function resetOtpInputs() {
+            otpInputs.forEach((input) => {
+                input.value = "";
+            });
+            otpSearchButton.disabled = true;
+            isCompletingOtp = false;
+        }
+
+        function startOtpTimer() {
+            let secondsRemaining = 180;
+            clearInterval(otpTimerInterval);
+
+            const updateTimer = () => {
+                const minutes = Math.floor(secondsRemaining / 60);
+                const seconds = String(secondsRemaining % 60).padStart(2, "0");
+                otpTimer.textContent = `${minutes}:${seconds}`;
+            };
+
+            updateTimer();
+            otpTimerInterval = setInterval(() => {
+                secondsRemaining = Math.max(0, secondsRemaining - 1);
+                updateTimer();
+
+                if (secondsRemaining === 0) {
+                    clearInterval(otpTimerInterval);
+                }
+            }, 1000);
+        }
+
+        function showOtpView() {
+            voterInfo.hidden = true;
+            voterForm.hidden = true;
+            dateInfo.hidden = true;
+            otpView.hidden = false;
+            verificationContainer.classList.add("otp-active");
+            resetOtpInputs();
+            startOtpTimer();
+            otpInputs[0].focus();
+        }
+
+        function showSearchView() {
+            clearInterval(otpTimerInterval);
+            otpView.hidden = true;
+            voterForm.hidden = false;
+            dateInfo.hidden = false;
+            verificationContainer.classList.remove("otp-active");
+        }
+
+        function displayVoterResult() {
+            const personalId = personalIdInput.value.trim();
+            const surname = surnameInput.value.trim();
+            const voter = voters[`${personalId}|${surname}`];
+            const isMatchingVoter = Boolean(voter);
+
+            showSearchView();
+            voterInfo.hidden = !isMatchingVoter;
+
+            if (isMatchingVoter) {
+                voterImage.src = voter.image;
+                voterCells[1].textContent = voter.surname;
+                voterCells[2].textContent = voter.firstName;
+                voterCells[3].textContent = voter.birthDate;
+                voterCells[5].textContent = voter.address;
+                voterInfo.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        function completeOtp() {
+            const code = otpInputs.map((input) => input.value).join("");
+
+            if (code.length !== 4 || isCompletingOtp) {
+                return;
+            }
+
+            isCompletingOtp = true;
+            displayVoterResult();
+        }
+
+        function updateOtpState() {
+            const isComplete = otpInputs.every((input) => input.value.length === 1);
+            otpSearchButton.disabled = !isComplete;
+
+            if (isComplete) {
+                completeOtp();
+            }
+        }
+
+        otpInputs.forEach((input, index) => {
+            input.addEventListener("input", () => {
+                input.value = input.value.replace(/\D/g, "").slice(-1);
+
+                if (input.value && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+
+                updateOtpState();
+            });
+
+            input.addEventListener("keydown", (event) => {
+                if (event.key === "Backspace" && !input.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+
+            input.addEventListener("paste", (event) => {
+                const pastedCode = event.clipboardData
+                    .getData("text")
+                    .replace(/\D/g, "")
+                    .slice(0, 4);
+
+                if (!pastedCode) {
+                    return;
+                }
+
+                event.preventDefault();
+                pastedCode.split("").forEach((digit, digitIndex) => {
+                    otpInputs[digitIndex].value = digit;
+                });
+
+                otpInputs[Math.min(pastedCode.length, 4) - 1].focus();
+                updateOtpState();
+            });
+        });
+
+        otpSearchButton.addEventListener("click", completeOtp);
+        otpBackButton.addEventListener("click", () => {
+            showSearchView();
+            voterInfo.hidden = true;
+            resetOtpInputs();
+            personalIdInput.focus();
+        });
+
+        voterForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            showOtpView();
+        });
+    </script>
+</body></html>
